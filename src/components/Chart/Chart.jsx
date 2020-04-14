@@ -9,10 +9,8 @@ const Chart = () => {
     
     useEffect(() => {
         const fetchAPI = async() => {
-        //     const dailyData = await fetchDailyData();
             setDailyData(await fetchDailyData());
     }
-    console.log(dailyData);
 
     fetchAPI();
     });
