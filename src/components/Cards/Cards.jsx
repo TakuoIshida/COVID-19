@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import styles from './Cards.module.css';
 
-const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
+const Cards = ({data: { confirmed, recovered, deaths, lastUpdate}}) => {
     if(!confirmed){
         return 'LOading...';
     }
@@ -40,7 +40,6 @@ const Cards = ({data: {confirmed, recovered, deaths, lastUpdate}}) => {
                             <Typography variant="h5">
                                 <CountUp start ={0} end = {deaths.value} duration ={2.5} separator =","/>
                             </Typography>
-                        <Typography variant="h5">REAL DATA</Typography>
                         <Typography color="textSecondary" gutterBottom>{new Date(lastUpdate).toDateString()}</Typography>
                         <Typography variant="body2">Number of deaths caused by COVID-19 </Typography>
                     </CardContent>
