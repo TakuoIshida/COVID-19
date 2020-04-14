@@ -6,23 +6,23 @@ import styles from './CountryPicker.module.css';
 import { fetchCountries } from '../../api';
 
 const CountryPicker = ({ handleCountryChange }) => {
-    const [fetchedCountries, setFetchedCountries] = useState([]);
+    const [Countries, setCountries] = useState([]);
 
     useEffect(() => {
         const fetchAPI = async () => {
-            setFetchedCountries(await fetchCountries());
+            setCountries(await fetchCountries());
         }
         fetchAPI();
-    },[setFetchedCountries]);
+    },[]);
 
     return ( 
         <FormControl className={styles.formControl}>
             <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
-                <option value="global"> global </option>
-                {fetchedCountries.map((country, i) => <option key={i} value={country}>{country}</option>)}
+                <option value=""> Global </option>
+                {Countries.map((country, i) => <option key={i} value={country}>{country}</option>)}
             </NativeSelect>
         </FormControl>
-    )
-}
+    );
+};
 
 export default CountryPicker;
