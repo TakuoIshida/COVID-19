@@ -26,8 +26,9 @@ export const fetchDailyData = async () =>{
             confirmed: dailyData.confirmed.total,
             deaths: dailyData.deaths.total,
             date: dailyData.reportDate,
+            deathRate: (dailyData.deaths.total/dailyData.confirmed.total*100).toFixed(2)
         }));
-
+        console.log(modifiedData);
         return modifiedData
     } catch(error) {
         console.log(error);
